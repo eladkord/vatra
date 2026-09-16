@@ -205,7 +205,7 @@ deck-stage section { box-sizing:border-box; overflow:hidden; font-family:'Inter'
 .values .pill h3 { margin:0; font-family:'Archivo',sans-serif; font-weight:800; font-size:22px; text-transform:uppercase; letter-spacing:0.05em; color:var(--leaf); }
 .values .pill p { margin:0; font-size:18px; line-height:1.45; color:var(--white); opacity:0.68; }
 /* Values bg photo */
-.values .bg-photo { position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; opacity:0.045; pointer-events:none; }
+.values .bg-photo { position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; opacity:0.13; pointer-events:none; }
 
 /* ══════════════════════════════
    S6 — WHAT VATRA BRINGS (LAYERS)
@@ -267,7 +267,7 @@ deck-stage section { box-sizing:border-box; overflow:hidden; font-family:'Inter'
 /* ══════════════════════════════
    S7 — WHAT TO EXPECT
 ══════════════════════════════ */
-.expect { background:var(--bg); position:relative; padding:var(--pad-top) var(--pad-x) 56px; display:flex; flex-direction:column; }
+.expect { background:var(--bg); position:relative; padding:var(--pad-top) var(--pad-x) 24px; display:flex; flex-direction:column; }
 .expect .head { position:relative; z-index:3; flex-shrink:0; }
 .expect .htitle { font-size:58px; }
 .expect .zones { margin-top:38px; display:grid; grid-template-columns:repeat(5,1fr); gap:14px; position:relative; z-index:3; }
@@ -306,10 +306,10 @@ deck-stage section { box-sizing:border-box; overflow:hidden; font-family:'Inter'
 .expect .xblock .xt { font-family:'Archivo',sans-serif; font-weight:800; font-size:20px; text-transform:uppercase; letter-spacing:0.06em; color:var(--flame); }
 .expect .xblock p { margin:0; font-size:19px; line-height:1.5; color:var(--white); opacity:0.65; }
 /* Photo strip below xblocks S7 */
-.expect .photo-strip { display:flex; gap:18px; margin-top:18px; position:relative; z-index:3; }
-.expect .photo-strip .ps { flex:1; height:175px; border-radius:16px; background-size:cover; background-position:center 72%; border:1px solid var(--line); opacity:0.82; transition:var(--trans); }
-.expect .photo-strip .ps:nth-child(2) { background-position:center 42%; }
-.expect .photo-strip .ps:nth-child(3) { background-position:center bottom; }
+.expect .photo-strip { display:flex; gap:18px; margin-top:18px; position:relative; z-index:3; flex:1; min-height:160px; }
+.expect .photo-strip .ps { flex:1; min-height:0; border-radius:16px; background-size:cover; background-position:center 28%; border:1px solid var(--line); opacity:0.82; transition:var(--trans); }
+.expect .photo-strip .ps:nth-child(2) { background-position:center 15%; }
+.expect .photo-strip .ps:nth-child(3) { background-position:center 55%; }
 .expect .photo-strip .ps:hover { opacity:1; transform:scale(1.02); }
 
 /* ══════════════════════════════
@@ -367,7 +367,17 @@ deck-stage section { box-sizing:border-box; overflow:hidden; font-family:'Inter'
 .track .photo-strip .ps:hover { opacity:1; transform:scale(1.02); }
 
 /* ══════════════════════════════
-   S10 — LET'S BUILD THIS (2×3 GRID)
+   S10 — VATRA IN ACTION (VIDEOS)
+══════════════════════════════ */
+.vibes { background:var(--bg); position:relative; padding:var(--pad-top) var(--pad-x) var(--pad-bot); }
+.vibes .head { position:relative; z-index:3; }
+.vibes .htitle { font-size:60px; }
+.vibes .video-row { margin-top:40px; position:relative; z-index:3; display:flex; gap:32px; justify-content:center; }
+.vibes .vid-wrap { border-radius:18px; overflow:hidden; border:1px solid var(--line); background:#111; width:337px; height:600px; flex-shrink:0; }
+.vibes .vid-wrap iframe { width:100%; height:100%; border:none; display:block; }
+
+/* ══════════════════════════════
+   S11 — LET'S BUILD THIS (2×3 GRID)
 ══════════════════════════════ */
 .collab { background:var(--bg); position:relative; padding:var(--pad-top) var(--pad-x) var(--pad-bot); }
 .collab .head { position:relative; z-index:3; }
@@ -408,6 +418,7 @@ deck-stage section { box-sizing:border-box; overflow:hidden; font-family:'Inter'
 .closing .ready-line { margin-top:24px; font-family:'Fraunces',serif; font-style:italic; font-size:38px; color:var(--white); opacity:0.88; letter-spacing:0.01em; }
 .closing .partner-line { margin-top:14px; font-family:'Fraunces',serif; font-style:italic; font-size:26px; color:var(--white); opacity:0.60; }
 .closing .partner-line b { color:var(--flame); font-style:normal; font-weight:600; }
+.closing .location-line { margin-top:28px; font-family:'Inter',sans-serif; font-size:14px; letter-spacing:0.18em; text-transform:uppercase; color:var(--white); opacity:0.28; }
 
 /* ══════════════════════════════
    ANIMATIONS
@@ -516,6 +527,9 @@ deck-stage section[data-deck-active].track .stat:nth-child(2) .num { animation-d
 deck-stage section[data-deck-active].track .stat:nth-child(3) .num { animation-delay:1.14s; }
 deck-stage section[data-deck-active].track .stat:nth-child(4) .num { animation-delay:1.30s; }
 
+/* Vibes */
+deck-stage section[data-deck-active].vibes .video-row { animation:fade-in .8s ease .35s both; }
+
 /* Collab */
 deck-stage section[data-deck-active].collab .lede  { animation:slide-enter .6s ease .15s both; }
 deck-stage section[data-deck-active].collab .offer { animation:fade-in .6s ease .25s both; }
@@ -559,14 +573,16 @@ deck-stage section[data-deck-active].closing .flame-bar{ animation:bar-grow .9s 
   <div class="bg-photo"></div>
   <div class="veil"></div>
   <div class="inner">
-    <div class="kicker">Czech Republic · 2027</div>
+    <div class="kicker">Czech Republic · Teplice · 2027</div>
     <div class="wordmark">V<span>A</span>TRA</div>
-    <div class="tagline">A Cultural Festival in Czech Republic</div>
+    <div class="tagline">A Cultural Festival in Teplice, Czech Republic</div>
   </div>
   <div class="meta">
     <span>Cultural &amp; Communal</span>
     <span class="dot"></span>
     <span>Czech Republic</span>
+    <span class="dot"></span>
+    <span>Teplice</span>
     <span class="dot"></span>
     <span>June 2027</span>
   </div>
@@ -648,7 +664,7 @@ deck-stage section[data-deck-active].closing .flame-bar{ animation:bar-grow .9s 
   <div class="head">
     <div class="eyebrow green">Benefit for You</div>
     <h2 class="htitle">Regional economic &amp;<br><em class="green">growth potential</em></h2>
-    <p class="lede">We believe in working with local suppliers, workers, and businesses to create a continuous long-term partnership — not a one-time event, but a recurring economic engine.</p>
+    <p class="lede">We believe in working with Teplice's local suppliers, workers, and businesses to create a continuous long-term partnership — not a one-time event, but a recurring economic engine for the region.</p>
   </div>
   <div class="chain">
     <div class="cbox">
@@ -675,7 +691,7 @@ deck-stage section[data-deck-active].closing .flame-bar{ animation:bar-grow .9s 
 
 <!-- ══ S5 — VALUES ═════════════════════════════ -->
 <section class="values tex" data-label="05 Core Values">
-  <div class="bg-photo" style="background-image:url('Deck/Deck Photos/AWP_3172.jpg')"></div>
+  <div class="bg-photo" style="background-image:url('Deck/Deck Photos/Milesovka_03_5856x3904.jpg')"></div>
   <div class="vatra-mark"><span class="wm">V<span>A</span>TRA</span><span class="divider"></span><span class="sub">Cultural Festival</span></div>
   <div class="head">
     <div class="eyebrow green">Non-Negotiables</div>
@@ -827,7 +843,7 @@ deck-stage section[data-deck-active].closing .flame-bar{ animation:bar-grow .9s 
     </div>
   </div>
   <div class="photo-strip">
-    <div class="ps" style="background-image:url('Deck/Deck Photos/92.jpg')"></div>
+    <div class="ps" style="background-image:url('Deck/Deck Photos/Sculptare.jpg')"></div>
     <div class="ps" style="background-image:url('Deck/Deck Photos/155.jpg')"></div>
     <div class="ps" style="background-image:url('Deck/Deck Photos/305.jpg')"></div>
   </div>
@@ -885,8 +901,32 @@ deck-stage section[data-deck-active].closing .flame-bar{ animation:bar-grow .9s 
   <div class="pgnum">09</div>
 </section>
 
-<!-- ══ S10 — LET'S BUILD THIS ═════════════════ -->
-<section class="collab tex glow-green" data-label="10 Let's Build This">
+<!-- ══ S10 — VATRA IN ACTION ══════════════════ -->
+<section class="vibes tex glow-fire" data-label="10 Vatra in Action">
+  <div class="vatra-mark"><span class="wm">V<span>A</span>TRA</span><span class="divider"></span><span class="sub">Cultural Festival</span></div>
+  <div class="head">
+    <div class="eyebrow">The Vibe</div>
+    <h2 class="htitle">See <em>Vatra</em> in action</h2>
+  </div>
+  <div class="video-row">
+    <div class="vid-wrap">
+      <iframe src="https://www.instagram.com/p/DXuOow5NYWS/embed/?cr=1&v=14"
+              frameborder="0" scrolling="no" allowfullscreen
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              title="Instagram post"></iframe>
+    </div>
+    <div class="vid-wrap">
+      <iframe src="https://www.instagram.com/reel/DOVVdTGjRmB/embed/?cr=1&v=14"
+              frameborder="0" scrolling="no" allowfullscreen
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              title="Instagram reel"></iframe>
+    </div>
+  </div>
+  <div class="pgnum">10</div>
+</section>
+
+<!-- ══ S11 — LET'S BUILD THIS ═════════════════ -->
+<section class="collab tex glow-green" data-label="11 Let's Build This">
   <div class="vatra-mark"><span class="wm">V<span>A</span>TRA</span><span class="divider"></span><span class="sub">Cultural Festival</span></div>
   <div class="head">
     <div class="eyebrow green">This Is Where You Come In</div>
@@ -909,11 +949,11 @@ deck-stage section[data-deck-active].closing .flame-bar{ animation:bar-grow .9s 
     <div class="step"><div class="sn">05</div><div class="sl">Finalising Details</div></div>
     <div class="step"><div class="sn">06</div><div class="sl">Mutual Launch</div></div>
   </div>
-  <div class="pgnum">10</div>
+  <div class="pgnum">11</div>
 </section>
 
-<!-- ══ S11 — CLOSING ═══════════════════════════ -->
-<section class="closing" data-label="11 Closing">
+<!-- ══ S12 — CLOSING ═══════════════════════════ -->
+<section class="closing" data-label="12 Closing">
   <div class="bg-img"></div>
   <div class="veil"></div>
   <div class="inner">
@@ -926,6 +966,7 @@ deck-stage section[data-deck-active].closing .flame-bar{ animation:bar-grow .9s 
     <div class="closing-wm">V<span>A</span>TRA</div>
     <div class="ready-line">is ready.</div>
     <div class="partner-line">We just need the <b>right partner</b> to light it.</div>
+    <div class="location-line">Teplice, Czech Republic · June 2027</div>
   </div>
   <div class="flame-bar"></div>
 </section>
