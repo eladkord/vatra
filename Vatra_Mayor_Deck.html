@@ -182,6 +182,15 @@ deck-stage section { box-sizing:border-box; overflow:hidden; font-family:'Inter'
 .benefit .cbox p { margin:0; font-size:19px; line-height:1.5; color:var(--white); opacity:0.68; }
 .benefit .carr { display:flex; align-items:center; justify-content:center; }
 .benefit .carr svg { width:26px; height:26px; stroke:var(--fire); stroke-width:2; fill:none; opacity:0.45; stroke-linecap:round; stroke-linejoin:round; }
+.benefit .supply { margin-top:40px; position:relative; z-index:3; display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+.benefit .scard {
+  border:1px solid var(--line-g); border-radius:16px; padding:26px 18px;
+  background:rgba(45,80,22,0.14); display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; gap:12px; min-height:130px; transition:var(--trans);
+}
+.benefit .scard:hover { transform:translateY(-4px); border-color:rgba(122,182,72,0.7); box-shadow:0 12px 32px rgba(45,80,22,0.4); background:rgba(45,80,22,0.24); }
+.benefit .scard svg { width:30px; height:30px; stroke:var(--leaf); stroke-width:1.5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.benefit .scard span { font-family:'Archivo',sans-serif; font-weight:700; font-size:15px; text-transform:uppercase; letter-spacing:0.04em; color:var(--white); opacity:0.85; line-height:1.3; }
 .benefit .tagfoot { margin-top:46px; position:relative; z-index:3; font-family:'Archivo',sans-serif; font-weight:600; font-size:22px; color:var(--white); opacity:0.58; border-left:3px solid var(--fire); padding-left:20px; }
 .benefit .tagfoot b { color:var(--flame); }
 
@@ -504,10 +513,18 @@ deck-stage section[data-deck-active].vision .sq:nth-child(4){animation-delay:.66
 
 /* Benefit */
 deck-stage section[data-deck-active].benefit .lede { animation:slide-enter .6s ease .15s both; }
-deck-stage section[data-deck-active].benefit .cbox:nth-child(1){animation:pop-in .6s ease .2s both}
-deck-stage section[data-deck-active].benefit .cbox:nth-child(3){animation:pop-in .6s ease .38s both}
-deck-stage section[data-deck-active].benefit .cbox:nth-child(5){animation:pop-in .6s ease .56s both}
-deck-stage section[data-deck-active].benefit .tagfoot{animation:fade-in .7s ease .8s both}
+deck-stage section[data-deck-active].benefit .scard { animation:pop-in .5s cubic-bezier(.22,1,.36,1) both; }
+deck-stage section[data-deck-active].benefit .scard:nth-child(1){animation-delay:.15s}
+deck-stage section[data-deck-active].benefit .scard:nth-child(2){animation-delay:.21s}
+deck-stage section[data-deck-active].benefit .scard:nth-child(3){animation-delay:.27s}
+deck-stage section[data-deck-active].benefit .scard:nth-child(4){animation-delay:.33s}
+deck-stage section[data-deck-active].benefit .scard:nth-child(5){animation-delay:.39s}
+deck-stage section[data-deck-active].benefit .scard:nth-child(6){animation-delay:.45s}
+deck-stage section[data-deck-active].benefit .scard:nth-child(7){animation-delay:.51s}
+deck-stage section[data-deck-active].benefit .scard:nth-child(8){animation-delay:.57s}
+deck-stage section[data-deck-active].benefit .scard:nth-child(9){animation-delay:.63s}
+deck-stage section[data-deck-active].benefit .scard:nth-child(10){animation-delay:.69s}
+deck-stage section[data-deck-active].benefit .tagfoot{animation:fade-in .7s ease .9s both}
 
 /* Impact slides */
 deck-stage section[data-deck-active].impact .lede { animation:slide-enter .6s ease .15s both; }
@@ -790,29 +807,22 @@ deck-stage section[data-deck-active].closing .flame-bar{ animation:bar-grow .9s 
   <div class="head">
     <div class="eyebrow green">Benefit for You</div>
     <h2 class="htitle">Regional economic &amp;<br><em class="green">growth potential</em></h2>
-    <p class="lede">We believe in working with Teplice's local suppliers, workers, and businesses to create a continuous long-term partnership — not a one-time event, but a recurring economic engine for the region.</p>
+    <p class="lede">A festival of this scale runs on local suppliers and businesses. The economic impact is not limited to the direct income of the location — it flows to hotels, restaurants, suppliers, workers, and businesses throughout the surrounding region.</p>
   </div>
-  <div class="chain">
-    <div class="cbox">
-      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg>
-      <h3>Local Products</h3>
-      <p>Featuring and selling locally made goods, crafts, and produce throughout the festival grounds.</p>
-    </div>
-    <div class="carr"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-    <div class="cbox">
-      <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-      <h3>Local F&amp;B Supplies</h3>
-      <p>Food and beverage sourced from regional producers, breweries, and culinary traditions of the Czech region.</p>
-    </div>
-    <div class="carr"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-    <div class="cbox">
-      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <h3>Local Tourism</h3>
-      <p>Festival attendance extends visitor stays — benefiting accommodation, transport, and services in the area.</p>
-    </div>
+  <div class="supply">
+    <div class="scard"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Hotels &amp; Accommodation</span></div>
+    <div class="scard"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg><span>Food Suppliers &amp; Catering</span></div>
+    <div class="scard"><svg viewBox="0 0 24 24"><path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8z"/></svg><span>Restaurants &amp; Bars</span></div>
+    <div class="scard"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span>Carpentry &amp; Build Crews</span></div>
+    <div class="scard"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Power &amp; Lighting</span></div>
+    <div class="scard"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span>Transport &amp; Shuttles</span></div>
+    <div class="scard"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Security</span></div>
+    <div class="scard"><svg viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span>Cleaning Services</span></div>
+    <div class="scard"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Local Staff</span></div>
+    <div class="scard"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span>Equipment &amp; Technical</span></div>
   </div>
-  <div class="tagfoot">The festival is not a one-time transaction. It's a <b>long-term investment</b> in the region.</div>
-  <div class="pgnum">04</div>
+  <div class="tagfoot">Not a one-time transaction — a <b>recurring economic engine</b> for hotels, restaurants, suppliers, workers, and businesses across the region.</div>
+  <div class="pgnum">06</div>
 </section>
 
 <!-- ══ S5 — VALUES ═════════════════════════════ -->
