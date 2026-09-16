@@ -208,6 +208,44 @@ deck-stage section { box-sizing:border-box; overflow:hidden; font-family:'Inter'
 .values .bg-photo { position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; opacity:0.13; pointer-events:none; }
 
 /* ══════════════════════════════
+   S4/S5 — CULTURAL & TOURISM IMPACT
+══════════════════════════════ */
+.impact { background:var(--bg); position:relative; padding:var(--pad-top) var(--pad-x) var(--pad-bot); }
+.impact .head { position:relative; z-index:3; }
+.impact .htitle { font-size:56px; }
+.impact .lede { margin-top:18px; font-size:21px; line-height:1.55; color:var(--white); opacity:0.62; max-width:1150px; position:relative; z-index:3; }
+.impact .grid { margin-top:40px; position:relative; z-index:3; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.impact .grid.g2 { grid-template-columns:repeat(2,1fr); }
+.impact .ipill {
+  border:1px solid var(--line); border-radius:20px; padding:32px 30px;
+  background:rgba(255,255,255,0.03); display:flex; flex-direction:column; gap:12px;
+  transition:var(--trans);
+}
+.impact .ipill:hover { transform:translateY(-6px); box-shadow:0 16px 48px rgba(0,0,0,0.4); }
+.impact .ipill svg { width:36px; height:36px; stroke-width:1.5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.impact .ipill h3 { margin:0; font-family:'Archivo',sans-serif; font-weight:800; font-size:20px; text-transform:uppercase; letter-spacing:0.05em; }
+.impact .ipill p { margin:0; font-size:17px; line-height:1.45; color:var(--white); opacity:0.68; }
+.impact .ipill.c-fire   { border-color:rgba(232,98,42,0.4);  background:rgba(232,98,42,0.06); }
+.impact .ipill.c-fire svg{stroke:var(--fire)}      .impact .ipill.c-fire h3{color:var(--flame)}
+.impact .ipill.c-purple { border-color:rgba(123,45,139,0.45); background:rgba(123,45,139,0.06); }
+.impact .ipill.c-purple svg{stroke:var(--purple-2)} .impact .ipill.c-purple h3{color:var(--purple-2)}
+.impact .ipill.c-teal   { border-color:rgba(13,107,94,0.45);  background:rgba(13,107,94,0.06); }
+.impact .ipill.c-teal svg{stroke:var(--teal-2)}     .impact .ipill.c-teal h3{color:var(--teal-2)}
+.impact .ipill.c-blue   { border-color:rgba(58,98,170,0.5);   background:rgba(27,53,104,0.1); }
+.impact .ipill.c-blue svg{stroke:var(--blue-2)}     .impact .ipill.c-blue h3{color:var(--blue-2)}
+.impact .ipill.c-leaf   { border-color:rgba(74,124,47,0.45);  background:rgba(45,80,22,0.12); }
+.impact .ipill.c-leaf svg{stroke:var(--leaf)}       .impact .ipill.c-leaf h3{color:var(--leaf)}
+.impact .ipill.c-amber  { border-color:rgba(232,165,32,0.4);  background:rgba(196,123,10,0.07); }
+.impact .ipill.c-amber svg{stroke:var(--amber-2)}   .impact .ipill.c-amber h3{color:var(--amber-2)}
+.impact .legacy {
+  margin-top:20px; position:relative; z-index:3;
+  border:1px solid rgba(232,98,42,0.4); border-radius:18px; padding:26px 34px;
+  background:rgba(232,98,42,0.07);
+  font-family:'Archivo',sans-serif; font-weight:600; font-size:21px; line-height:1.5; color:var(--white);
+}
+.impact .legacy b { color:var(--flame); }
+
+/* ══════════════════════════════
    S6 — WHAT VATRA BRINGS (LAYERS)
    Full / Full / Half+Half / Half+Half
 ══════════════════════════════ */
@@ -471,6 +509,17 @@ deck-stage section[data-deck-active].benefit .cbox:nth-child(3){animation:pop-in
 deck-stage section[data-deck-active].benefit .cbox:nth-child(5){animation:pop-in .6s ease .56s both}
 deck-stage section[data-deck-active].benefit .tagfoot{animation:fade-in .7s ease .8s both}
 
+/* Impact slides */
+deck-stage section[data-deck-active].impact .lede { animation:slide-enter .6s ease .15s both; }
+deck-stage section[data-deck-active].impact .ipill { animation:pop-in .55s cubic-bezier(.22,1,.36,1) both; }
+deck-stage section[data-deck-active].impact .ipill:nth-child(1){animation-delay:.12s}
+deck-stage section[data-deck-active].impact .ipill:nth-child(2){animation-delay:.24s}
+deck-stage section[data-deck-active].impact .ipill:nth-child(3){animation-delay:.36s}
+deck-stage section[data-deck-active].impact .ipill:nth-child(4){animation-delay:.48s}
+deck-stage section[data-deck-active].impact .ipill:nth-child(5){animation-delay:.60s}
+deck-stage section[data-deck-active].impact .ipill:nth-child(6){animation-delay:.72s}
+deck-stage section[data-deck-active].impact .legacy { animation:fade-in .7s ease .85s both; }
+
 /* Values */
 deck-stage section[data-deck-active].values .pill { animation:pop-in .55s cubic-bezier(.22,1,.36,1) both; }
 deck-stage section[data-deck-active].values .pill:nth-child(1){animation-delay:.1s}
@@ -658,8 +707,85 @@ deck-stage section[data-deck-active].closing .flame-bar{ animation:bar-grow .9s 
   <div class="pgnum">03</div>
 </section>
 
-<!-- ══ S4 — BENEFIT ════════════════════════════ -->
-<section class="benefit tex glow-green" data-label="04 Benefit">
+<!-- ══ S4 — CULTURAL & DESTINATION IMPACT ══════ -->
+<section class="impact tex glow-fire" data-label="04 Cultural Impact">
+  <div class="vatra-mark"><span class="wm">V<span>A</span>TRA</span><span class="divider"></span><span class="sub">Cultural Festival</span></div>
+  <div class="head">
+    <div class="eyebrow">Beyond the Event</div>
+    <h2 class="htitle">Not a festival that visits —<br><em>a platform for the region</em></h2>
+    <p class="lede">Vatra is not an event that arrives for a few days. It is a platform that creates long-term cultural, tourism, and reputational value for Teplice and the wider region.</p>
+  </div>
+  <div class="grid">
+    <div class="ipill c-fire">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <h3>International Exposure</h3>
+      <p>Visitors from many countries — most of whom would never have come otherwise — discover the landscape, nature, towns, and identity of the region</p>
+    </div>
+    <div class="ipill c-purple">
+      <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <h3>Destination Branding</h3>
+      <p>Guests photograph, film, and share the experience — every visitor becomes an ambassador who puts the region on the international map</p>
+    </div>
+    <div class="ipill c-teal">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <h3>Cultural Exchange</h3>
+      <p>An international meeting point of music, art, and nature — connecting people from different cultures with each other and with local culture</p>
+    </div>
+    <div class="ipill c-amber">
+      <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <h3>Local Culture &amp; Products</h3>
+      <p>Regional food, beer and wine, producers, artists, and crafts woven into the festival — visitors experience what the region itself has to offer</p>
+    </div>
+    <div class="ipill c-leaf">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"/><rect x="2" y="11" width="6" height="11"/><rect x="9" y="6" width="6" height="16"/><rect x="16" y="2" width="6" height="20"/></svg>
+      <h3>Local Identity &amp; Pride</h3>
+      <p>Successfully hosting an international event strengthens local pride — and positions the area as a place where meaningful things happen</p>
+    </div>
+    <div class="ipill c-blue">
+      <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      <h3>International Connections</h3>
+      <p>Artists, producers, creative professionals, and entrepreneurs meet here — seeding future collaborations and additional international events</p>
+    </div>
+  </div>
+  <div class="pgnum">04</div>
+</section>
+
+<!-- ══ S5 — TOURISM & LONG-TERM LEGACY ═════════ -->
+<section class="impact tex glow-blue" data-label="05 Tourism & Legacy">
+  <div class="vatra-mark"><span class="wm">V<span>A</span>TRA</span><span class="divider"></span><span class="sub">Cultural Festival</span></div>
+  <div class="head">
+    <div class="eyebrow blue">Destination &amp; Tourism</div>
+    <h2 class="htitle">The first visit is <em class="teal">never the last</em></h2>
+    <p class="lede">The festival is the region's first point of contact with international visitors — and the value continues long after the last stage goes quiet.</p>
+  </div>
+  <div class="grid g2">
+    <div class="ipill c-teal">
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <h3>First Contact, Repeat Visits</h3>
+      <p>A first experience of the area through the festival leads to future holidays, nature trips, and visits with friends and family</p>
+    </div>
+    <div class="ipill c-blue">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <h3>Longer Stays</h3>
+      <p>Guests arrive days before and stay after the festival — exploring local attractions, restaurants, nature, and nearby cities</p>
+    </div>
+    <div class="ipill c-amber">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+      <h3>Part of a Bigger Experience</h3>
+      <p>The location is presented as part of a broader tourism experience — not only as the site where the festival takes place</p>
+    </div>
+    <div class="ipill c-fire">
+      <svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+      <h3>A Stage for Future Events</h3>
+      <p>A successful edition proves the region can host large, complex productions — opening the door to future music, cultural, and conference events</p>
+    </div>
+  </div>
+  <div class="legacy">The value does not end when the festival is over. What remains: <b>international recognition, returning visitors, social media reach, global connections — and a stronger position for the region.</b></div>
+  <div class="pgnum">05</div>
+</section>
+
+<!-- ══ S6 — ECONOMIC IMPACT ════════════════════ -->
+<section class="benefit tex glow-green" data-label="06 Economic Impact">
   <div class="vatra-mark"><span class="wm">V<span>A</span>TRA</span><span class="divider"></span><span class="sub">Cultural Festival</span></div>
   <div class="head">
     <div class="eyebrow green">Benefit for You</div>
