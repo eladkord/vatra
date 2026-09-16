@@ -27,6 +27,11 @@ How to QA: open the deck (https://eladkord.github.io/vatra or locally), check ea
 
 Unchanged on purpose: Values slide background (Milesovka landscape — fits "respect for the land"), closing background (80.jpg stage shot).
 
+## Commits
+
+- C1 → `018df1b` · C2 → `cf2580b` · C3+C4 → `07d313d` · C5 → `1f877f0` · C6 → `b6e345c`
+- Baseline (pre-existing video slide work) → `0259b32`
+
 ## Notes / open items
 
 - Photo pool is limited to 15 images in `Deck/Deck Photos`. For a truly "international scale" cover (aerial night crowd, big light show), we need new source photos from Adam/photographers — flagged for follow-up.
